@@ -17,7 +17,7 @@ setup(
     author='Jeff Trudeau',
     author_email='jeff.trudeau@gmail.com',
     url='https://github.com/InspiredMember/inspired-cli',
-    license='GNU LGPLv3',
+    license='MIT',
     packages=find_packages(exclude=['ez_setup', 'tests*']),
     package_data={'insprdcli': ['templates/*']},
     include_package_data=True,
