@@ -21,6 +21,9 @@ setup(
     packages=find_packages(exclude=['ez_setup', 'tests*']),
     package_data={'insprdcli': ['templates/*']},
     include_package_data=True,
+    install_requires=[
+        'insprd==0.0.2.dev20191004153925',
+    ],
     entry_points="""
         [console_scripts]
         insprdcli = insprdcli.main:main
