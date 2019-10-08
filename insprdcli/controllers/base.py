@@ -1,7 +1,8 @@
-
 from cement import Controller, ex
 from cement.utils.version import get_version_banner
+
 from ..core.version import get_version
+
 
 VERSION_BANNER = """
 Command-line interface into Inspired Platform %s
@@ -17,7 +18,7 @@ class Base(Controller):
         description = 'Command-line interface into Inspired Platform'
 
         # text displayed at the bottom of --help output
-        epilog = 'Usage: insprdcli command1 --foo bar'
+        epilog = 'Usage: insprdcli <command> [arguments] [options]'
 
         # controller level arguments. ex: 'insprdcli --version'
         arguments = [
@@ -27,13 +28,12 @@ class Base(Controller):
                 'version' : VERSION_BANNER } ),
         ]
 
-
     def _default(self):
         """Default action if no sub-command is passed."""
 
         self.app.args.print_help()
 
-
+    """
     @ex(
         help='example sub command1',
 
@@ -47,7 +47,7 @@ class Base(Controller):
         ],
     )
     def command1(self):
-        """Example sub-command."""
+        # Example sub-command.
 
         data = {
             'foo' : 'bar',
@@ -58,3 +58,4 @@ class Base(Controller):
             data['foo'] = self.app.pargs.foo
 
         self.app.render(data, 'command1.jinja2')
+    """

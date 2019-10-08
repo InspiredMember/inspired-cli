@@ -1,0 +1,6 @@
+insprd:
+    publishers:{% for name, values in publishers.items() %}
+        {{ name }}:
+            platform_domain: {{ values.platform_domain }}
+            publisher_id: {{ values.publisher_id }}
+            signing_key_id: {{ values.signing_key_id }}{% endfor %}

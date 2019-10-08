@@ -1,12 +1,16 @@
+import os
 
 from cement import App, TestApp, init_defaults
 from cement.core.exc import CaughtSignal
-from .core.exc import InsprdCLIError
+
 from .controllers.base import Base
+from .controllers.publisher import Publisher
+from .core.exc import InsprdCLIError
+from .utils import get_config_dir
+
 
 # configuration defaults
-CONFIG = init_defaults('insprdcli')
-CONFIG['insprdcli']['foo'] = 'bar'
+CONFIG = init_defaults('insprd')
 
 
 class InsprdCLI(App):
@@ -17,22 +21,27 @@ class InsprdCLI(App):
 
         # configuration defaults
         config_defaults = CONFIG
+        config_section = 'insprd'
+
+        config_files = [
+            os.path.join(get_config_dir(), 'publishers'),
+        ]
 
         # call sys.exit() on close
         exit_on_close = True
 
         # load additional framework extensions
         extensions = [
-            'yaml',
             'colorlog',
             'jinja2',
+            'yaml',
         ]
 
         # configuration handler
         config_handler = 'yaml'
 
         # configuration file suffix
-        config_file_suffix = '.yml'
+        #config_file_suffix = '.yml'
 
         # set the log handler
         log_handler = 'colorlog'
@@ -42,7 +51,8 @@ class InsprdCLI(App):
 
         # register handlers
         handlers = [
-            Base
+            Base,
+            Publisher,
         ]
 
 

@@ -1,5 +1,5 @@
 cement==3.0.4
 colorlog
-insprd==0.0.2.dev20191004153925
+insprd
 jinja2
 pyyaml
