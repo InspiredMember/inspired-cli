@@ -26,6 +26,6 @@ setup(
     ],
     entry_points="""
         [console_scripts]
-        insprdcli = insprdcli.main:main
+        insprd = insprdcli.main:main
     """,
 )

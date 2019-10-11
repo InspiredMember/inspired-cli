@@ -3,9 +3,7 @@
 ## Installation
 
 ```
-$ pip install -r requirements.txt
-
-$ pip install setup.py
+$ pip install insprdcli
 ```
 
 ## Development
