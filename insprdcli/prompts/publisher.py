@@ -2,6 +2,10 @@ from .base import CharacterPrompt
 
 
 class CreatePublisher(object):
+    class EmailPrompt(CharacterPrompt):
+        class Meta(CharacterPrompt.Meta):
+            text = 'Enter an email address to associate with this Publisher:'
+
     class NamePrompt(CharacterPrompt):
         class Meta(CharacterPrompt.Meta):
             text = 'Enter a name to identify this Publisher:'

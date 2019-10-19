@@ -13,7 +13,11 @@ class PlatformDomainPrompt(CharacterPrompt):
 
     def process_input(self):
         self.input = super(PlatformDomainPrompt, self).process_input()
-        if self.input == '(custom domain)':
+        if self.input == 'dev-api.insprd.tech':
+            self.input = 'fgdsawlhnb.execute-api.us-east-1.amazonaws.com/dev'
+        elif self.input == 'api.inspired.com':
+            raise NotImplemented('Not in production yet')
+        elif self.input == '(custom domain)':
             self.input = CharacterPrompt(
                 'Enter a custom domain for accessing the Inspired Platform:',
             ).input
