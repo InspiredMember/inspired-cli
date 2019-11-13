@@ -26,6 +26,7 @@ class Publisher(Controller):
     def create(self):
         try:
             platform_domain = PlatformDomainPrompt().input
+            create_code = CreatePublisher.CreateCodePrompt().input
             publisher_name = CreatePublisher.NamePrompt().input
             publisher_id = None
             publisher_email = CreatePublisher.EmailPrompt().input
@@ -44,7 +45,7 @@ class Publisher(Controller):
         )
 
         try:
-            response = client.create(publisher_name, publisher_email)
+            response = client.create(create_code, publisher_name, publisher_email)
         except Exception as e:
             self.app.log.error(e)
             sys.exit(1)
